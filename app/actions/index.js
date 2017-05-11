@@ -1,13 +1,16 @@
-export const addTodo = (text) => {
-  return {
-    type: 'ADD_TODO',
-    text
-  }
-}
+let nextTodoId = 0
+export const addTodo = (text) => ({
+  type: 'ADD_TODO',
+  id: nextTodoId++,
+  text
+})
 
-export const editTodo = (newText) => {
-  return {
-    type: 'EDIT_TODO',
-    text: newText
-  }
-}
+export const setVisibilityFilter = (filter) => ({
+  type: 'SET_VISIBILITY_FILTER',
+  filter
+})
+
+export const toggleTodo = (id) => ({
+  type: 'TOGGLE_TODO',
+  id
+})
